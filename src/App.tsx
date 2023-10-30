@@ -1,3 +1,4 @@
+// @ts-ignore
 import { Chart as ChartJS, defaults } from "chart.js/auto";
 
 import BarChart from "./components/BarChart";
