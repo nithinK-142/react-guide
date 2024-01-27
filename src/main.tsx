@@ -11,6 +11,8 @@ import { Layout } from "./layout.tsx";
 import Home from "./pages/Home.tsx";
 import About from "./pages/About.tsx";
 import Contact from "./pages/Contact.tsx";
+import Login from "./pages/Login.tsx";
+import { AuthProvider } from "./context/AuthProvider.tsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -18,12 +20,15 @@ const router = createBrowserRouter(
       <Route path="" element={<Home />} />
       <Route path="about" element={<About />} />
       <Route path="contact" element={<Contact />} />
+      <Route path="login" element={<Login />} />
     </Route>
   )
 );
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>
 );
