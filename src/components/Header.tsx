@@ -17,7 +17,7 @@ export default function Header() {
         <div className="flex flex-wrap items-center justify-between max-w-screen-xl mx-auto">
           <Link to="/" className="flex items-center">
             <img
-              src="https://alexharkness.com/wp-content/uploads/2020/06/logo-2.png"
+              src="/logo-2.png"
               className="h-12 mr-3"
               alt="Logo"
             />

@@ -13,13 +13,35 @@ import About from "./pages/About.tsx";
 import Contact from "./pages/Contact.tsx";
 import Login from "./pages/Login.tsx";
 import { AuthProvider } from "./context/AuthProvider.tsx";
+import PrivateRoute from "./components/PrivateRoute.tsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
-      <Route path="" element={<Home />} />
-      <Route path="about" element={<About />} />
-      <Route path="contact" element={<Contact />} />
+      <Route
+        path=""
+        element={
+          <PrivateRoute>
+            <Home />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="about"
+        element={
+          <PrivateRoute>
+            <About />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="contact"
+        element={
+          <PrivateRoute>
+            <Contact />
+          </PrivateRoute>
+        }
+      />
       <Route path="login" element={<Login />} />
     </Route>
   )

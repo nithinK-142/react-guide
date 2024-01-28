@@ -14,7 +14,9 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
 }) => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
 
-  const toggleAuth = () => setIsAuthenticated((prevAuth) => !prevAuth);
+  const toggleAuth = () => {
+    setIsAuthenticated((prevAuth) => !prevAuth);
+  };
 
   const authContextValue: AuthContextType = {
     isAuthenticated,
