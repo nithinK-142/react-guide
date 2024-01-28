@@ -43,6 +43,7 @@ const router = createBrowserRouter(
         }
       />
       <Route path="login" element={<Login />} />
+      <Route path="*" element={<div>404 Not found!</div>} />
     </Route>
   )
 );
