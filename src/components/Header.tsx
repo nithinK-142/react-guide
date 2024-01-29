@@ -1,4 +1,4 @@
-import { AuthContext } from "@/context/AuthProvider";
+import { AuthContext } from "@/context/AuthContext";
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Button from "./Button";

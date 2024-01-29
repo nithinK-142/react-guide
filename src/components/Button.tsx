@@ -1,14 +1,15 @@
-import { AuthContext } from "@/context/AuthProvider";
 import { useContext } from "react";
+import { AuthContext } from "@/context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 
 const Button = ({ text }: { text: string }) => {
-  const { toggleAuth } = useContext(AuthContext)!;
+  const { logout } = useContext(AuthContext)!;
+
   const navigate = useNavigate();
 
   const handleToggleAuth = () => {
-    toggleAuth();
-    navigate("/");
+    logout();
+    navigate("/login");
   };
   return (
     <Link

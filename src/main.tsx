@@ -12,7 +12,7 @@ import Home from "./pages/Home.tsx";
 import About from "./pages/About.tsx";
 import Contact from "./pages/Contact.tsx";
 import Login from "./pages/Login.tsx";
-import { AuthProvider } from "./context/AuthProvider.tsx";
+import { AuthProvider } from "./context/AuthContextProvider.tsx";
 import PrivateRoute from "./components/PrivateRoute.tsx";
 
 const router = createBrowserRouter(
