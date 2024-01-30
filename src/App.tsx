@@ -1,4 +1,13 @@
+import Form from "./components/Form";
+
 function App() {
-  return <h1 className="text-center">React Guide</h1>;
+  return (
+    <main>
+      <h1 className="pb-16 text-xl font-semibold text-center">
+        YUP Validation
+      </h1>
+      <Form />
+    </main>
+  );
 }
 export default App;
