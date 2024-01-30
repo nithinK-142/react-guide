@@ -1,9 +1,9 @@
-import { object, string, ValidationError } from "yup";
+import * as yup from "yup";
 
-export const userSchema = object().shape({
-  name: string().min(4).required(),
-  email: string().email().required(),
-  password: string().min(4).max(10).required(),
+export const userSchema = yup.object().shape({
+  name: yup.string().min(4).required(),
+  email: yup.string().email().required(),
+  password: yup.string().min(4).max(10).required(),
 });
 
 export interface IUser {
@@ -17,6 +17,6 @@ export const validateUser = async (userData: IUser) => {
     const isValid = await userSchema.validate(userData);
     return isValid;
   } catch (error) {
-    if (error instanceof ValidationError) alert(error.message);
+    if (error instanceof yup.ValidationError) alert(error.message);
   }
 };
