@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply bg-stone-500;
+  @apply h-screen bg-stone-500;
 }
 
 h1 {
