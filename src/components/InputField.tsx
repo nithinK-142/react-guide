@@ -20,7 +20,7 @@ const InputField: React.FC<InputFieldProps> = ({
       <label htmlFor={id} className="label">
         {label}
       </label>
-      <input type={type} id={id} className="input" {...register(id)} />
+      <input type={type} id={id} className="input" {...register(id)} required />
       <span className="absolute right-0 pt-1 text-sm font-medium text-red-600">
         {errorMessage}
       </span>
