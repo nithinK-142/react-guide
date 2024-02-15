@@ -1,6 +1,7 @@
 import { UserSchemeType, userSchema } from "@/validations/user-validation";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import InputField from "./InputField";
 
 const Form = () => {
   const {
@@ -19,62 +20,35 @@ const Form = () => {
   return (
     <div className="flex flex-col items-center w-full">
       <form onSubmit={handleSubmit(onSubmit)} className="min-w-[28rem]">
-        <div className="relative mb-5">
-          <label htmlFor="text" className="label">
-            Name
-          </label>
-          <input type="text" className="input" {...register("name")} />
-          <span className="absolute right-0 text-sm text-red-600">
-            {" "}
-            {errors.name?.message}{" "}
-          </span>
-        </div>
-        <div className="relative mb-5">
-          <label htmlFor="email" className="label">
-            Email
-          </label>
-          <input
-            type="text"
-            id="email"
-            className="input"
-            {...register("email")}
-          />
-          <span className="absolute right-0 text-sm text-red-600">
-            {" "}
-            {errors.email?.message}{" "}
-          </span>
-        </div>
-        <div className="relative mb-5">
-          <label htmlFor="password" className="label">
-            Password
-          </label>
-          <input
-            type="password"
-            id="password"
-            className="input"
-            {...register("password")}
-          />
-          <span className="absolute right-0 text-sm text-red-600">
-            {" "}
-            {errors.password?.message}{" "}
-          </span>
-        </div>
-        <div className="relative mb-5">
-          <label htmlFor="repeatPassword" className="label">
-            Repeat password
-          </label>
-          <input
-            type="password"
-            id="repeatPassword"
-            className="input"
-            {...register("repeatPassword")}
-          />
-          <span className="absolute right-0 text-sm text-red-600">
-            {" "}
-            {errors.repeatPassword?.message}{" "}
-          </span>
-        </div>
-        <button type="submit" className="btn">
+        <InputField
+          label="Name"
+          id="name"
+          type="text"
+          register={register}
+          errorMessage={errors.name?.message}
+        />
+        <InputField
+          label="Email"
+          id="email"
+          type="text"
+          register={register}
+          errorMessage={errors.email?.message}
+        />
+        <InputField
+          label="Password"
+          id="password"
+          type="password"
+          register={register}
+          errorMessage={errors.password?.message}
+        />
+        <InputField
+          label="Repeat password"
+          id="repeatPassword"
+          type="password"
+          register={register}
+          errorMessage={errors.repeatPassword?.message}
+        />
+        <button type="submit" className="mt-6 btn">
           Validate
         </button>
       </form>
