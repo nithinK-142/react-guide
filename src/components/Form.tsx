@@ -1,25 +1,24 @@
-import { UserSchemeType, userSchema } from "@/validations/user-validation";
+import { UserData, userSchema } from "@/validations/user";
 import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
 import InputField from "./InputField";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 const Form = () => {
   const {
     handleSubmit,
     register,
     formState: { errors },
-  } = useForm({
-    resolver: yupResolver(userSchema),
+  } = useForm<UserData>({
+    resolver: zodResolver(userSchema),
   });
-
-  const onSubmit = (data: UserSchemeType) => {
+  const formSubmit = (data: UserData) => {
     console.log(data);
     alert("Form Submitted!");
   };
 
   return (
     <div className="flex flex-col items-center w-full">
-      <form onSubmit={handleSubmit(onSubmit)} className="min-w-[28rem]">
+      <form onSubmit={handleSubmit(formSubmit)} className="min-w-[28rem]">
         <InputField
           label="Name"
           id="name"
@@ -33,6 +32,14 @@ const Form = () => {
           type="text"
           register={register}
           errorMessage={errors.email?.message}
+        />
+        <InputField
+          label="Age"
+          id="age"
+          type="number"
+          register={register}
+          isNumber={true}
+          errorMessage={errors.age?.message}
         />
         <InputField
           label="Password"

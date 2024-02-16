@@ -1,18 +1,21 @@
-import { UserSchemeType } from "@/validations/user-validation";
+import { UserData } from "@/validations/user";
 import { UseFormRegister } from "react-hook-form";
 
 export interface InputFieldProps {
   label: string;
-  id: "name" | "email" | "password" | "repeatPassword";
+  id: "name" | "email" | "age" | "password" | "repeatPassword";
   type: string;
-  register: UseFormRegister<UserSchemeType>;
+  register: UseFormRegister<UserData>;
+  isNumber?: boolean;
   errorMessage?: string;
 }
+
 const InputField: React.FC<InputFieldProps> = ({
   label,
   id,
   type,
   register,
+  isNumber = false,
   errorMessage,
 }) => {
   return (
@@ -20,7 +23,13 @@ const InputField: React.FC<InputFieldProps> = ({
       <label htmlFor={id} className="label">
         {label}
       </label>
-      <input type={type} id={id} className="input" {...register(id)} required />
+      <input
+        type={type}
+        id={id}
+        className="input"
+        {...register(id, { valueAsNumber: isNumber })}
+        required
+      />
       <span className="absolute right-0 pt-1 text-sm font-medium text-red-600">
         {errorMessage}
       </span>
