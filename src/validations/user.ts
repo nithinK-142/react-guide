@@ -1,6 +1,6 @@
-import { ZodType, z } from "zod";
+import { z } from "zod";
 
-export const userSchema: ZodType<UserData> = z
+export const userSchema = z
   .object({
     name: z.string().min(3, "Name's too short!").max(30, "Name's too long!"),
     email: z.string().email(),
@@ -19,10 +19,4 @@ export const userSchema: ZodType<UserData> = z
     path: ["repeatPassword"],
   });
 
-export type UserData = {
-  name: string;
-  email: string;
-  age: number;
-  password: string;
-  repeatPassword: string;
-};
+export type UserData = z.infer<typeof userSchema>;
