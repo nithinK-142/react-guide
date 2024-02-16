@@ -1,21 +1,42 @@
-import { z } from "zod";
+import {
+  object,
+  string,
+  email,
+  Output,
+  minLength,
+  maxLength,
+  minValue,
+  maxValue,
+  number,
+  forward,
+  custom,
+} from "valibot";
 
-export const userSchema = z
-  .object({
-    name: z.string().min(3, "Name's too short!").max(30, "Name's too long!"),
-    email: z.string().email(),
-    age: z.number().min(18, "Underage are prohibited!").max(70),
-    password: z
-      .string()
-      .min(4, "Password's too short!")
-      .max(10, "Password's too long!"),
-    repeatPassword: z.string(),
-  })
-  .refine((data) => data.password === data.repeatPassword, {
-    message: "Passwords do not match!",
-    path: ["repeatPassword"],
-  });
+export const userSchema = object(
+  {
+    name: string([
+      minLength(3, "Name's too short!"),
+      maxLength(30, "Name's too long!"),
+    ]),
+    email: string([email("Invalid emai!")]),
+    age: number([minValue(18, "Underage are prohibited!"), maxValue(70)]),
+    password: string([
+      minLength(4, "Password's too short!"),
+      maxLength(10, "Password's too long!"),
+    ]),
+    repeatPassword: string(),
+  },
+  [
+    forward(
+      custom(
+        (input) => input.password === input.repeatPassword,
+        "Passwords do not match."
+      ),
+      ["repeatPassword"]
+    ),
+  ]
+);
 
-export type UserData = z.infer<typeof userSchema>;
+export type UserData = Output<typeof userSchema>;
 
 export type IDType = "name" | "email" | "age" | "password" | "repeatPassword";

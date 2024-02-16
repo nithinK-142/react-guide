@@ -1,7 +1,7 @@
 import { UserData, userSchema } from "@/validations/user";
 import { SubmitHandler, useForm } from "react-hook-form";
 import InputField from "./InputField";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { valibotResolver } from "@hookform/resolvers/valibot";
 
 const Form = () => {
   const {
@@ -9,7 +9,7 @@ const Form = () => {
     register,
     formState: { errors },
   } = useForm<UserData>({
-    resolver: zodResolver(userSchema),
+    resolver: valibotResolver(userSchema),
   });
   const formSubmit: SubmitHandler<UserData> = (data) => {
     console.log(data);
