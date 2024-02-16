@@ -1,9 +1,9 @@
-import { UserData } from "@/validations/user";
+import { IDType, UserData } from "@/validations/user";
 import { UseFormRegister } from "react-hook-form";
 
 export interface InputFieldProps {
   label: string;
-  id: "name" | "email" | "age" | "password" | "repeatPassword";
+  id: IDType;
   type: string;
   register: UseFormRegister<UserData>;
   isNumber?: boolean;
@@ -30,7 +30,7 @@ const InputField: React.FC<InputFieldProps> = ({
         {...register(id, { valueAsNumber: isNumber })}
         required
       />
-      <span className="absolute right-0 pt-1 text-sm font-medium text-red-600">
+      <span className="absolute right-0 pt-1 text-sm font-medium text-red-500">
         {errorMessage}
       </span>
     </div>

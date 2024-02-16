@@ -1,5 +1,5 @@
 import { UserData, userSchema } from "@/validations/user";
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import InputField from "./InputField";
 import { zodResolver } from "@hookform/resolvers/zod";
 
@@ -11,7 +11,7 @@ const Form = () => {
   } = useForm<UserData>({
     resolver: zodResolver(userSchema),
   });
-  const formSubmit = (data: UserData) => {
+  const formSubmit: SubmitHandler<UserData> = (data) => {
     console.log(data);
     alert("Form Submitted!");
   };

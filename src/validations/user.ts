@@ -9,10 +9,7 @@ export const userSchema = z
       .string()
       .min(4, "Password's too short!")
       .max(10, "Password's too long!"),
-    repeatPassword: z
-      .string()
-      .min(4, "Passwords do not match!")
-      .max(10, "Passwords do not match!"),
+    repeatPassword: z.string(),
   })
   .refine((data) => data.password === data.repeatPassword, {
     message: "Passwords do not match!",
@@ -20,3 +17,5 @@ export const userSchema = z
   });
 
 export type UserData = z.infer<typeof userSchema>;
+
+export type IDType = "name" | "email" | "age" | "password" | "repeatPassword";
