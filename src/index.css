@@ -3,9 +3,46 @@
 @tailwind utilities;
 
 body {
-  @apply h-screen bg-stone-500;
+  @apply h-screen bg-[#212121];
 }
 
-h1 {
-  @apply pt-10 font-mono text-4xl text-center;
+/* Animation */
+.home {
+  @apply text-[5vw];
+}
+.animation-wrapper {
+  @apply flex flex-col items-center justify-center w-full h-full gap-8;
+}
+.animation-wrapper .animation-wrapper-inner {
+  @apply w-full text-[rgba(255,255,255,0.8)] grid place-items-center grid-cols-[repeat(3,1fr)] grid-rows-[repeat(3,12vh)] gap-x-2.5 gap-y-2.5;
+}
+.animation-wrapper .animation-wrapper-inner img {
+  @apply aspect-[1/1] w-12;
+}
+
+.icon_1 {
+  grid-area: 1 / 2 / 2 / 3;
+}
+.icon_2 {
+  grid-area: 2 / 1 / 3 / 2;
+}
+.icon_3 {
+  grid-area: 3 / 2 / 4 / 3;
+}
+.icon_4 {
+  grid-area: 2 / 3 / 3 / 4;
+}
+.icon_5 {
+  grid-area: 2 / 2 / 3 / 3;
+}
+@media (min-width: 786px) {
+  .home {
+    @apply text-[white] text-[5vh] w-full text-center h-screen flex items-center;
+  }
+  .animation-wrapper {
+    @apply flex w-full h-3/6 justify-evenly;
+  }
+  .animation-wrapper .animation-wrapper-inner {
+    @apply w-2/5 text-[rgba(255,255,255,0.8)] grid place-items-center grid-cols-[repeat(3,12vw)] grid-rows-[repeat(3,16vh)] gap-x-2.5 gap-y-2.5 text-[4rem];
+  }
 }

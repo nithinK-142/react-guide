@@ -1,28 +1,152 @@
-import { Route, Routes, useLocation } from "react-router-dom";
-import { AnimatePresence } from "framer-motion";
+import linkedIn from "@/assets/linkedin.png";
+import facebook from "@/assets/facebook.png";
+import discord from "@/assets/discord.png";
+import github from "@/assets/github.png";
+import mail from "@/assets/email.png";
+import { motion } from "framer-motion";
 
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Home from "./pages/Home.tsx";
-import About from "./pages/About.tsx";
-import Contact from "./pages/Contact.tsx";
-import Products from "./pages/Products.tsx";
+const iconsAnimation = {
+  icon_1: {
+    initial: {
+      opacity: 0,
+      x: 150,
+    },
+    animate: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        type: "spring",
+        mass: 1.3,
+      },
+    },
+  },
+  icon_2: {
+    initial: {
+      opacity: 0,
+      y: -150,
+    },
+    animate: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        mass: 1.3,
+      },
+    },
+  },
+  icon_3: {
+    initial: {
+      opacity: 0,
+      x: -150,
+    },
+    animate: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        type: "spring",
+        mass: 1.3,
+      },
+    },
+  },
+  icon_4: {
+    initial: {
+      opacity: 0,
+      y: 150,
+    },
+    animate: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        mass: 1.3,
+      },
+    },
+  },
+  icon_5: {
+    initial: {
+      opacity: 0,
+      rotate: 180,
+      // scale: 0
+    },
+    animate: {
+      opacity: 1,
+      rotate: 0,
+      // scale:1,
+      transition: {
+        type: "spring",
+        mass: 1.3,
+      },
+    },
+  },
+};
+
+const iconsData = [
+  {
+    href: "https://www.linkedin.com/in/nithin142",
+    iconVariant: iconsAnimation.icon_1,
+    icon: "icon_1",
+    imgSrc: linkedIn,
+    altText: "LinkedIn",
+  },
+  {
+    href: "https://www.facebook.com",
+    iconVariant: iconsAnimation.icon_2,
+    icon: "icon_2",
+    imgSrc: facebook,
+    altText: "Facebook",
+  },
+  {
+    href: "https://discordapp.com",
+    iconVariant: iconsAnimation.icon_3,
+    icon: "icon_3",
+    imgSrc: discord,
+    altText: "Discord",
+  },
+  {
+    href: "https://github.com/nithinK-142",
+    iconVariant: iconsAnimation.icon_4,
+    icon: "icon_4",
+    imgSrc: github,
+    altText: "GitHub",
+  },
+  {
+    href: "mailto:nithin.sagar.359@gmail.com",
+    iconVariant: iconsAnimation.icon_5,
+    icon: "icon_5",
+    imgSrc: mail,
+    altText: "Mail",
+  },
+];
 
 const App = () => {
-  const location = useLocation();
-
   return (
-    <div className="flex flex-col justify-between h-screen App">
-      <Header />
-      <AnimatePresence mode="wait">
-        <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </AnimatePresence>
-      <Footer />
+    <div className="h-screen home">
+      <div className="animation-wrapper">
+        <motion.div
+          initial="initial"
+          animate="animate"
+          transition={{
+            delayChildren: 0,
+            staggerChildren: 0.3,
+          }}
+          className="animation-wrapper-inner"
+        >
+          {iconsData.map(
+            ({ altText, href, icon, iconVariant, imgSrc }, index) => (
+              <motion.div
+                key={index}
+                variants={iconVariant}
+                whileHover={{ scale: 1.2 }}
+                className={icon}
+              >
+                <a href={href} target="_blank" rel="noreferrer noopener">
+                  <img src={imgSrc} alt={altText} />
+                </a>
+              </motion.div>
+            )
+          )}
+        </motion.div>
+      </div>
     </div>
   );
 };
