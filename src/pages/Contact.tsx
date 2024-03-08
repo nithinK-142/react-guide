@@ -1,12 +1,10 @@
 import { motion } from "framer-motion";
-
-import "./styles.css";
-import { Title } from "../components/Title/Title";
-import { Body } from "../components/Body/Body";
+import { Title } from "@/components/framer-wrappers/Title";
+import { Body } from "@/components/framer-wrappers/Body";
 
 const Contact = () => {
   return (
-    <div className="page contact">
+    <div className="page bg-[#ffcf81]">
       <Title delay={0.75}>Contact</Title>
       <Body delay={0.75}>
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam nemo
@@ -22,7 +20,7 @@ const Contact = () => {
           y: "100%",
         }}
         transition={{ duration: 2, ease: [0.2, 1, 0.2, 1] }} // Cubic bezier curve for easing
-        className="slide"
+        className="fixed w-full h-screen bg-[#0f0f0f] left-0 top-0"
       />
       <motion.div
         animate={{
@@ -36,7 +34,7 @@ const Contact = () => {
           borderRadius: "0",
         }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
-        className="circle"
+        className="absolute left-1/2 right-1/2 bg-[#ffcf81] -translate-x-1/2 -translate-y-1/2"
       />
     </div>
   );

@@ -1,12 +1,11 @@
-import "./styles.css";
-import { Title } from "../components/Title/Title";
-import { Product } from "../components/Product/Product";
+import { Title } from "@/components/framer-wrappers/Title";
+import { Product } from "@/components/framer-wrappers/Product";
 
 const Products = () => {
   return (
-    <div className="page products">
+    <div className="page bg-[#ffb996]">
       <Title>Products</Title>
-      <div className="product-list">
+      <div className="flex justify-around">
         <Product
           src="https://picsum.photos/id/0/300/200"
           alt="Laptop"

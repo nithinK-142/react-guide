@@ -1,10 +1,9 @@
-import "./styles.css";
-import { Title } from "../components/Title/Title";
-import { Body } from "../components/Body/Body";
+import { Title } from "@/components/framer-wrappers/Title";
+import { Body } from "@/components/framer-wrappers/Body";
 
 const Home = () => {
   return (
-    <div className="page home">
+    <div className="page bg-[#d9edbf]">
       <Title>Home</Title>
       <Body>
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam nemo
