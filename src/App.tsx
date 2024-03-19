@@ -1,34 +1,29 @@
-import { useSelector } from "react-redux";
-import { useAppDispatch } from "./redux/hooks";
-import {
-  decrementCounter,
-  incrementCounter,
-  resetCounter,
-  selectCounter,
-} from "./redux/slices/counter";
+import useCounterStore, { selectCounter } from "./store/counter-store";
 
 function App() {
-  const count = useSelector(selectCounter);
-  const dispatch = useAppDispatch();
+  const counter = useCounterStore(selectCounter);
+  const incrementCounter = useCounterStore((state) => state.incrementCounter);
+  const decrementCounter = useCounterStore((state) => state.decrementCounter);
+  const resetCounter = useCounterStore((state) => state.resetCounter);
   return (
     <div className="flex flex-col items-center justify-center">
-      <h2 className="pt-10 text-7xl">{count}</h2>
+      <h2 className="pt-10 text-7xl">{counter}</h2>
       <div className="flex gap-6 pt-4">
         <button
-          onClick={() => dispatch(decrementCounter())}
+          onClick={decrementCounter}
           className="flex items-center justify-center px-3 pb-2 text-6xl text-red-400 rounded-md active:scale-90 bg-white/10"
         >
           -
         </button>
         <button
-          onClick={() => dispatch(incrementCounter())}
+          onClick={incrementCounter}
           className="flex items-center justify-center px-3 pb-2 text-6xl text-green-400 rounded-md active:scale-90 bg-white/10"
         >
           +
         </button>
       </div>
       <button
-        onClick={() => dispatch(resetCounter())}
+        onClick={resetCounter}
         className="px-4 py-1 mt-4 text-2xl rounded-md bg-white/20"
       >
         Reset
