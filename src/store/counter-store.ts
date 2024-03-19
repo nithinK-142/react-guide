@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { createSelectors } from "./create-selectors";
 
 interface ICounterStore {
   counter: number;
@@ -24,6 +25,6 @@ const useCounterStore = create<ICounterStore>()((set) => ({
   resetCounter: () => set({ counter: 0 }),
 }));
 
-export const selectCounter = (state: ICounterStore) => state.counter;
+export const useStoreSelectors = createSelectors(useCounterStore);
 
 export default useCounterStore;

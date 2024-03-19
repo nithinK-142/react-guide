@@ -1,10 +1,10 @@
-import useCounterStore, { selectCounter } from "./store/counter-store";
+import { useStoreSelectors } from "./store/counter-store";
 
 function App() {
-  const counter = useCounterStore(selectCounter);
-  const incrementCounter = useCounterStore((state) => state.incrementCounter);
-  const decrementCounter = useCounterStore((state) => state.decrementCounter);
-  const resetCounter = useCounterStore((state) => state.resetCounter);
+  const counter = useStoreSelectors.use.counter();
+  const incrementCounter = useStoreSelectors.use.incrementCounter();
+  const decrementCounter = useStoreSelectors.use.decrementCounter();
+  const resetCounter = useStoreSelectors.use.resetCounter();
   return (
     <div className="flex flex-col items-center justify-center">
       <h2 className="pt-10 text-7xl">{counter}</h2>
