@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "name": "Stainless Steel Water Bottle",
+    "description": "Double-walled vacuum insulation keeps drinks cold for up to 24 hours or hot for up to 12 hours."
+  },
+  {
+    "id": 2,
+    "name": "Wireless Bluetooth Earbuds",
+    "description": "Sleek and compact design with noise-canceling technology for an immersive listening experience."
+  },
+  {
+    "id": 3,
+    "name": "Smartphone Gimbal Stabilizer",
+    "description": "Capture smooth and professional-looking videos with this 3-axis gimbal stabilizer for smartphones."
+  },
+  {
+    "id": 4,
+    "name": "Portable Solar Charger",
+    "description": "Charge your devices on the go with this lightweight and durable solar charger, perfect for outdoor adventures."
+  },
+  {
+    "id": 5,
+    "name": "Reusable Silicone Food Storage Bags",
+    "description": "Eco-friendly alternative to plastic bags, ideal for storing snacks, sandwiches, and leftovers."
+  },
+  {
+    "id": 6,
+    "name": "Adjustable Laptop Stand",
+    "description": "Ergonomically designed stand with multiple height and angle adjustments to improve posture and reduce neck strain."
+  },
+  {
+    "id": 7,
+    "name": "Electric Toothbrush with UV Sanitizer",
+    "description": "Advanced toothbrush with UV sanitizer to kill germs and bacteria, promoting oral hygiene."
+  },
+  {
+    "id": 8,
+    "name": "Fitness Tracker Smartwatch",
+    "description": "Track your workouts, monitor heart rate, and receive notifications with this sleek and waterproof smartwatch."
+  },
+  {
+    "id": 9,
+    "name": "Digital Air Fryer",
+    "description": "Enjoy crispy and healthy meals with this compact and easy-to-use digital air fryer."
+  },
+  {
+    "id": 10,
+    "name": "Collapsible Travel Backpack",
+    "description": "Packable backpack with multiple compartments, perfect for traveling or daily commutes."
+  }
+]
