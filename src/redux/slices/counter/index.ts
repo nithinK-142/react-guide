@@ -1,3 +1,4 @@
+import { RootState } from "@/redux/store";
 import { createSlice } from "@reduxjs/toolkit";
 
 export const counterSlice = createSlice({
@@ -13,6 +14,8 @@ export const counterSlice = createSlice({
     resetCounter: () => 0,
   },
 });
+
+export const selectCounter = (state: RootState) => state.counter;
 
 export const { decrementCounter, incrementCounter, resetCounter } =
   counterSlice.actions;

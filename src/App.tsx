@@ -1,12 +1,14 @@
-import { useAppDispatch, useAppSelector } from "./redux/hooks";
+import { useSelector } from "react-redux";
+import { useAppDispatch } from "./redux/hooks";
 import {
   decrementCounter,
   incrementCounter,
   resetCounter,
+  selectCounter,
 } from "./redux/slices/counter";
 
 function App() {
-  const count = useAppSelector((state) => state.counter);
+  const count = useSelector(selectCounter);
   const dispatch = useAppDispatch();
   return (
     <div className="flex flex-col items-center justify-center">
@@ -14,13 +16,13 @@ function App() {
       <div className="flex gap-6 pt-4">
         <button
           onClick={() => dispatch(decrementCounter())}
-          className="flex items-center justify-center px-3 pb-2 text-6xl text-red-400 rounded-md bg-white/10"
+          className="flex items-center justify-center px-3 pb-2 text-6xl text-red-400 rounded-md active:scale-90 bg-white/10"
         >
           -
         </button>
         <button
           onClick={() => dispatch(incrementCounter())}
-          className="flex items-center justify-center px-3 pb-2 text-6xl text-green-400 rounded-md bg-white/10"
+          className="flex items-center justify-center px-3 pb-2 text-6xl text-green-400 rounded-md active:scale-90 bg-white/10"
         >
           +
         </button>
