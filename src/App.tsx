@@ -4,7 +4,7 @@ function App() {
   return (
     <main>
       <h1 className="pb-16 text-xl font-semibold text-center">
-        YUP Validation
+        Zod Validation
       </h1>
       <Form />
     </main>
