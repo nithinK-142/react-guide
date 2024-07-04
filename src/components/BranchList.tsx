@@ -14,7 +14,9 @@ const BranchList = () => {
   useEffect(() => {
     async function getBranches() {
       try {
-        const response = await axios.get(import.meta.env.VITE_API_BRANCH_URL);
+        const response = await axios.get(
+          import.meta.env.VITE_BRANCH_SENTINEL_URL
+        );
         setBranches(response.data);
         setLoading(false);
       } catch (error) {
