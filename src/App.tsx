@@ -28,8 +28,8 @@ function App() {
     setNewTodo("");
   };
 
-  const removeTodo = (task: string) => {
-    setTodos((prev) => prev.filter((todo) => todo.task !== task));
+  const removeTodo = (index: number) => {
+    setTodos((prev) => prev.filter((_, i) => i !== index));
   };
 
   return (
@@ -68,7 +68,7 @@ function App() {
               )}
             </span>
             <button
-              onClick={() => removeTodo(todo.task)}
+              onClick={() => removeTodo(index)}
               className="px-4 py-1 text-white rounded-md bg-red-500/90"
             >
               delete
