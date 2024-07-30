@@ -1,6 +1,6 @@
 interface ButtonProps {
   buttonType?: "primary" | "secondary";
-  onClick?: any;
+  onClick?: () => Promise<void>;
   buttonText?: string;
 }
 
